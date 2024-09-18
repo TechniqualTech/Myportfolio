@@ -1,0 +1,110 @@
+"use client"
+import React, { useState, useRef } from 'react'
+
+export default function Page() {
+    const [message, setMessage] = useState('No Error');
+
+    const [formData, setFormData] = useState({
+        image: null,
+        title: '',
+        sub_title: '',
+        description: '',
+        live_link: ''
+    });
+
+    const fileInputRef = useRef(null);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log('Form data submitted1:', formData);
+
+
+        const formDataToSend = new FormData();
+        formDataToSend.append('image', formData.image);
+        formDataToSend.append('title', formData.title);
+        formDataToSend.append('sub_title', formData.sub_title);
+        formDataToSend.append('description', formData.description);
+        formDataToSend.append('live_link', formData.live_link);
+
+
+
+        for (const [key, value] of formDataToSend) {
+            console.log(`${key}: ${value}`);
+        }
+
+
+        try {
+            const response = await fetch('api/addproject', {
+                method: 'POST',
+                body: formDataToSend
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                setMessage(result.message);
+                //reset
+                setFormData({
+                    image: null,
+                    title: '',
+                    sub_title: '',
+                    description: '',
+                    live_link: ''
+                })
+                // Reset file input field
+                if (fileInputRef.current) {
+                    fileInputRef.current.value = '';
+                }
+            } else {
+                setMessage(`Error: ${result.error}`);
+            }
+        } catch (error) {
+            setMessage(`Error: ${error.message}`);
+        }
+
+
+
+    }
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleImageChange = (event) => {
+        setFormData({
+            ...formData,
+            image: event.target.files[0],
+        });
+    };
+
+    return (
+        <div className='container-fluid py-5'>
+            <div className='container'>
+                <div className='col-lg-4 col-sm-8 col-12 rounded-4 border-1  p-4 m-lg-5 my-5 white_shadow'>
+                    <form className='d-flex flex-column' onSubmit={handleSubmit}>
+                        <label htmlFor="name" className='title_md text-white mt-2'>Choose Cover Image</label>
+                        <input type="file" id='image' name='image' onChange={handleImageChange} title='1248x650' accept="image/*" ref={fileInputRef} required className='rounded-5 border-0 mt-2' />
+
+                        <label htmlFor="name" className='title_md text-white mt-2'>Title</label>
+                        <input type='text' id="text_title" name="title" onChange={handleChange} title='1-word 20char' value={formData.title} required className='rounded-3 border-0 mt-2'></input>
+
+                        <label htmlFor="name" className='title_md text-white mt-2'>Sub_Title</label>
+                        <input type='text' id="text_subtitle" name="sub_title" onChange={handleChange} title='8-word 35char' value={formData.sub_title} required className='rounded-3 border-0 mt-2'></input>
+
+                        <label htmlFor="name" className='title_md text-white mt-2'>Description</label>
+                        <input type='text' id="text_description" name="description" onChange={handleChange} title='15word 80char' value={formData.description} required className='rounded-3 border-0 mt-2'></input>
+
+                        <label htmlFor="name" className='title_md text-white mt-2'>Deployed Link</label>
+                        <input type='url' id="text_link" name="live_link" onChange={handleChange} title='live project' value={formData.live_link} required className='rounded-3 border-0 mt-2'></input>
+
+                        <button type="submit" className='my-5 rounded-4 col-6 title_md mx-auto border-1 white_shadow bg-danger text-white'>Add Project</button>
+
+                        {/* image 1248-650 ,title,subtitel,desc,live link */}
+                    </form>
+                </div>
+            </div>
+        </div>
+    )
+}

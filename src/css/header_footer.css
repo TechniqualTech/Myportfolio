@@ -1,0 +1,103 @@
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+
+.lh_sm {
+    line-height: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.footer_text {
+    font-weight: 600;
+    color: #dc143c !important;
+}
+
+.social_logo {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+}
+.tran_blur{
+    background-color: transparent;
+    backdrop-filter: blur(5px);
+}
+
+/* rotating cube animation*/
+.containers {
+    perspective: 1000px;
+    perspective-origin: 100% 100%;
+}
+
+.cube {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    transform-style: preserve-3d;
+    animation: rotate 6s linear infinite;
+}
+
+.cube>div {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 0.9;
+    background: linear-gradient(to right, #09adc8, #001f4e);
+}
+
+.s1 {
+    transform: translateZ(20px);
+}
+
+.s2 {
+    transform: rotateY(90deg) translateZ(20px);
+}
+
+.s3 {
+    transform: rotateY(180deg) translateZ(20px);
+}
+
+.s4 {
+    transform: rotateX(90deg) translateZ(20px);
+}
+
+.s5 {
+    transform: rotateY(-90deg) translateZ(20px);
+}
+
+.s6 {
+    transform: rotateX(-90deg) translateZ(20px) rotate(180deg);
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotateX(0deg) rotateY(360deg) rotateZ(360deg);
+    }
+}
+
+
+/* hamburg menu */
+.hamburg_menu {
+    width: auto;
+    height: auto;
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.hamburg_menu span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 5px;
+}
+
+.hamburg_container_hide {
+    display: none !important;
+}
+
+.hamburg_container_show {
+    display: block !important;
+}

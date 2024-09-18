@@ -1,0 +1,13 @@
+import mongoose from 'mongoose';
+
+const FormDataSchema = new mongoose.Schema({
+    image: Buffer,
+    title: String,
+    subtitle: String,
+    description:String,
+    livelink:String,
+}, { timestamps: true });
+
+const FormData = mongoose.models.FormData || mongoose.model('FormData', FormDataSchema);
+
+export default FormData;

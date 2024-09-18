@@ -1,0 +1,47 @@
+/* welcome */
+.wheel_size {
+    width: 20vw;
+    height: 20vw;
+}
+
+
+@media (max-width:992px) {
+    .font_res2 {
+        font-size: 1.2rem !important;
+    }
+
+    .font_res {
+        font-size: 1rem !important;
+    }
+}
+
+/* infinite caurosal */
+
+/* animate come from right wait and move to left */
+.animate-from-right {
+    animation: moveFromRight 3s linear forwards infinite;
+}
+
+@keyframes moveFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    10% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(0);
+        animation-play-state: paused;
+    }
+
+    90% {
+        animation-play-state: running;
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
