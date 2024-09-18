@@ -16,7 +16,7 @@ export default function About() {
           <li>Sass/Scss: SASS/SCSS is a CSS preprocessor for efficient, modular, and customizable styling with variables and nesting.</li>
         </ul>
         <p className='fs-4 font_res2'>
-        Whether it&apos;s crafting pixel-perfect UI components or optimizing backend performance, I'm committed to delivering clean, code that adheres to industry standards. Let's collaborate and bring your ideas to life! Feel free to connect with me on LinkedIn or explore my projects on GitHub. You can also reach out via email at <span className='text-danger'>  vickyg19052002@gmail.com </span>. Looking forward to creating amazing web experiences together!
+        Whether it&apos;s crafting pixel-perfect UI components or optimizing backend performance, I&apos;m committed to delivering clean, code that adheres to industry standards. Let&apos;s collaborate and bring your ideas to life! Feel free to connect with me on LinkedIn or explore my projects on GitHub. You can also reach out via email at <span className='text-danger'>  vickyg19052002@gmail.com </span>. Looking forward to creating amazing web experiences together!
         </p>
       </div>
     </div>
