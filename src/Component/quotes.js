@@ -62,8 +62,8 @@ export default function Quotes() {
         <div className='container my-5'>
             <div className='row'>
                 <div className='col-lg-4'>
-                    <p className='footer_text fs-2 z m-0' data-aos="flip-up">Make's Your Day...</p>
-                    <p className='title_md text-white'>driving toward's your success.</p>
+                    <p className='footer_text fs-2 z m-0' data-aos="flip-up">Make&apos;s Your Day...</p>
+                    <p className='title_md text-white'>driving toward&apos;s your success.</p>
                 </div>
                 <div className='col-lg-8'>
                     <div className='auto_carousal m-1 p-2 col-12 row flex-nowrap overflow-hidden'>
